@@ -1,14 +1,14 @@
-import { isAuthenticated } from '../controllor/home';
-import Home from './view/home';
+import { authenticateUser } from '../controllor/home';
+import Home from '../view/home';
 
 export const paths = {
   ROOT: '/',
 };
 
 
-const authenticateUser = getState => {
+const authenticate = getState => {
   return (nextState, replace) => {
-    if (!isAuthenticated(getState())) {
+    if (!authenticateUser(getState())) {
       //replace(paths.SIGN_IN);
     }
   };
@@ -24,7 +24,7 @@ export const getRoutes = getState => {
     childRoutes: [{
         indexRoute: {
             component: Home,
-            onEnter: requireAuth(getState)
+            onEnter: authenticate(getState)
         }
     }
   ]

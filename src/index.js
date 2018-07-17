@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
+import configureStore from './controllor/store';
 import axios from 'axios';
 import Root from './router/root';
 import App from './view/home';
