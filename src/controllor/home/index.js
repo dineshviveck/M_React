@@ -9,7 +9,7 @@ const homeState = new Record({ activePage:'', responseMsg:'', actionNeeded : '',
 export function homeReducer(state = new homeState(), {payload, type}) {
   switch (type) {
   	case "GOOGLE_ADDRESS":
-  		return state.merge({activePage:payload.pageName , actionNeeded : payload.actionNeeded});
+  		return state.merge({activePage:payload.pageName , data : payload.address});
     default:
     	return state;
   }
